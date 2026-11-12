@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stackly - Explore The World</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+      <div class="preloader" id="preloader">
+        <div class="pl-panel pl-panel-top"></div>
+        <div class="pl-panel pl-panel-bottom"></div>
+        <div class="pl-content">
+            <div class="pl-logo-wrap">
+                <span class="pl-glow"></span>
+                <span class="pl-ring"></span>
+                <span class="pl-ring pl-ring-2"></span>
+                <img src="Assets/blacklogo.webp" alt="Stackly" class="pl-logo">
+            </div>
+            <p class="pl-tagline">Preparing your journey</p>
+            <div class="pl-bar"><b id="plBar"></b></div>
+            <div class="pl-percent"><span id="plCount">0</span>%</div>
+        </div>
+    </div>
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <header class="main-header">
+        <nav class="navbar navbar-expand-xl fixed-top travel-navbar">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="Assets/blacklogo.webp" alt="Wanderly Travel Logo" class="brand-logo">
+                </a>
+                <button class="navbar-toggler menu-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavigation" aria-controls="mainNavigation" aria-expanded="false" aria-label="Toggle navigation">
+                    <span></span><span></span><span></span>
+                </button>
+                <div class="collapse navbar-collapse" id="mainNavigation">
+                    <ul class="navbar-nav ms-auto align-items-xl-center">
+                        <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#destinations">Destinations</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#hotels">Hotels</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#offers">Offers</a></li>
+                        <li class="nav-item"><a class="nav-link" href="error.html">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="error.html">Contact</a></li>
+                        <li class="nav-item nav-login"><a class="nav-link" href="error.html">Login</a></li>
+                        <li class="nav-item nav-register">
+                            <a class="btn register-btn" href="error.html">Register <i class="fa-solid fa-arrow-right ms-2"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="travel-hero" id="home">
+            <div class="hero-background"></div>
+            <div class="hero-overlay"></div>
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <div class="hero-badge"><span class="badge-dot"></span> EXPLORE THE WORLD WITH US</div>
+                    <h1 class="hero-title">Discover Places.<br><span>Create Memories.</span></h1>
+                    <p class="hero-description">Find your perfect destination, discover amazing stays and make every journey unforgettable.</p>
+                    <div class="hero-trust">
+                        <div class="trust-avatars">
+                            <img src="Assets/student1.webp" alt="Traveler">
+                            <img src="Assets/student2.webp" alt="Traveler">
+                            <img src="Assets/student3.webp" alt="Traveler">
+                            <img src="Assets/IT18.webp" alt="Traveler">
+                        </div>
+                        <div>
+                            <div class="trust-stars">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <span>Trusted by 10,000+ travelers</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="booking-wrapper">
+                    <div class="booking-tabs">
+                        <button class="booking-tab active" data-category="hotel"><i class="fa-solid fa-hotel"></i><span>Hotels</span></button>
+                        <button class="booking-tab" data-category="flight"><i class="fa-solid fa-plane"></i><span>Flights</span></button>
+                        <button class="booking-tab" data-category="car"><i class="fa-solid fa-car"></i><span>Car Rental</span></button>
+                        <button class="booking-tab" data-category="package"><i class="fa-solid fa-suitcase-rolling"></i><span>Packages</span></button>
+                        <button class="booking-tab" data-category="cruise"><i class="fa-solid fa-ship"></i><span>Cruises</span></button>
+                        <button class="booking-tab" data-category="tour"><i class="fa-solid fa-umbrella-beach"></i><span>Tours</span></button>
+                    </div>
+
+                    <div class="booking-panel">
+                        <div class="booking-heading">
+                            <div>
+                                <span class="booking-small-title">START YOUR JOURNEY</span>
+                                <h2 id="bookingHeading">Where would you like to go?</h2>
+                            </div>
+                            <div class="secure-booking"><i class="fa-solid fa-shield-halved"></i> Secure Booking</div>
+                        </div>
+
+                        <form id="travelSearchForm">
+                            <div class="booking-fields">
+                                <div class="booking-field destination-field">
+                                    <label for="destinationInput"><i class="fa-solid fa-location-dot"></i> Destination</label>
+                                    <div class="input-container">
+                                        <input type="text" id="destinationInput" placeholder="Where do you want to go?" autocomplete="off" required>
+                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                    </div>
+                                    <div class="destination-suggestions" id="destinationSuggestions"></div>
+                                </div>
+                                <div class="booking-field date-field">
+                                    <label for="checkIn"><i class="fa-regular fa-calendar"></i> Check In</label>
+                                    <input type="date" id="checkIn" required>
+                                </div>
+                                <div class="booking-field date-field">
+                                    <label for="checkOut"><i class="fa-regular fa-calendar-check"></i> Check Out</label>
+                                    <input type="date" id="checkOut" required>
+                                </div>
+                                <div class="booking-field guest-field">
+                                    <label><i class="fa-solid fa-users"></i> Guests &amp; Rooms</label>
+                                    <button type="button" class="guest-trigger" id="guestTrigger">
+                                        <span id="guestSummary">2 Guests, 1 Room</span>
+                                        <i class="fa-solid fa-chevron-down"></i>
+                                    </button>
+                                    <div class="guest-popup" id="guestPopup">
+                                        <div class="guest-row">
+                                            <div><strong>Adults</strong><small>Age 18+</small></div>
+                                            <div class="counter">
+                                                <button type="button" data-counter="adults" data-action="minus">−</button>
+                                                <span id="adultsCount">2</span>
+                                                <button type="button" data-counter="adults" data-action="plus">+</button>
+                                            </div>
+                                        </div>
+                                        <div class="guest-row">
+                                            <div><strong>Children</strong><small>Age 0–17</small></div>
+                                            <div class="counter">
+                                                <button type="button" data-counter="children" data-action="minus">−</button>
+                                                <span id="childrenCount">0</span>
+                                                <button type="button" data-counter="children" data-action="plus">+</button>
+                                            </div>
+                                        </div>
+                                        <div class="guest-row">
+                                            <div><strong>Rooms</strong><small>Number of rooms</small></div>
+                                            <div class="counter">
+                                                <button type="button" data-counter="rooms" data-action="minus">−</button>
+                                                <span id="roomsCount">1</span>
+                                                <button type="button" data-counter="rooms" data-action="plus">+</button>
+                                            </div>
+                                        </div>
+                                        <button type="button" class="guest-done" id="guestDone">Done</button>
+                                    </div>
+                                </div>
+                                <div class="booking-submit">
+                                    <button type="submit" id="searchButton"><span>Search Now</span><i class="fa-solid fa-arrow-right"></i></button>
+                                </div>
+                            </div>
+                            <div class="booking-message" id="bookingMessage"></div>
+                        </form>
+
+                        <div class="booking-bottom">
+                            <span><i class="fa-solid fa-check-circle"></i> Best Price Guaranteed</span>
+                            <span><i class="fa-solid fa-check-circle"></i> Free Cancellation Options</span>
+                            <span><i class="fa-solid fa-check-circle"></i> 24/7 Customer Support</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-bottom-info">
+                    <span><i class="fa-solid fa-earth-americas"></i> Explore 50+ Destinations</span>
+                    <span><i class="fa-solid fa-hotel"></i> 500+ Premium Hotels</span>
+                    <span><i class="fa-solid fa-heart"></i> Unforgettable Experiences</span>
+                </div>
+            </div>
+        </section>
+        <br>
+
+        <section class="search-results-section" id="searchResults">
+            <div class="container">
+                <div class="results-heading">
+                    <div>
+                        <span class="section-label">YOUR SEARCH RESULTS</span>
+                        <h2 id="resultsTitle">Available Stays</h2>
+                        <p id="resultsDescription">Explore the best stays for your journey.</p>
+                    </div>
+                    <button type="button" id="clearSearch" class="clear-search-btn">Clear Search</button>
+                </div>
+                <div class="row g-4" id="hotelResults"></div>
+            </div>
+        </section>
+
+        <section class="section-space bg-mint" id="travel-styles">
+            <div class="container">
+                <div class="section-head" data-aos="fade-up">
+                    <span class="section-label">Travel Styles</span>
+                    <h2>Find A Trip That Matches Your Mood</h2>
+                    <p>Whether you crave quiet mountains, buzzing cities or private pool villas, pick a style and we will filter the best stays for you instantly.</p>
+                </div>
+                <div class="row g-4" id="styleGrid"></div>
+            </div>
+        </section>
+
+        <section class="section-space bg-soft" id="destinations">
+            <div class="container">
+                <div class="section-head" data-aos="fade-up">
+                    <span class="section-label">Popular Destinations</span>
+                    <h2>Top Places To Visit This Season</h2>
+                    <p>From misty hill stations to turquoise islands, explore handpicked destinations loved by thousands of travelers.</p>
+                </div>
+                <div class="chip-row" data-aos="fade-up" data-aos-delay="100">
+                    <button type="button" class="chip active" data-region="All">All</button>
+                    <button type="button" class="chip" data-region="India">India</button>
+                    <button type="button" class="chip" data-region="International">International</button>
+                </div>
+                <div class="row g-4" id="destinationGrid"></div>
+            </div>
+        </section>
+
+        <section class="section-space section-white" id="hotels">
+            <div class="container">
+                <div class="section-head" data-aos="fade-up">
+                    <span class="section-label">Featured Hotels</span>
+                    <h2>Stay In Handpicked Hotels &amp; Resorts</h2>
+                    <p>Filter by price and rating, sort your way and save favourites to your wishlist. Prices update instantly for your stay.</p>
+                </div>
+
+                <div class="filter-bar" data-aos="fade-up">
+                    <div class="row g-3">
+                        <div class="col-xl-3 col-md-6">
+                            <label for="filterSearch">Search</label>
+                            <input type="text" id="filterSearch" class="form-control" placeholder="Hotel or city">
+                        </div>
+                        <div class="col-xl-2 col-md-6 col-6">
+                            <label for="filterPrice">Price / Night</label>
+                            <select id="filterPrice" class="form-select">
+                                <option value="all">Any Price</option>
+                                <option value="0-3000">Under ₹3,000</option>
+                                <option value="3000-6000">₹3,000 - ₹6,000</option>
+                                <option value="6000-10000">₹6,000 - ₹10,000</option>
+                                <option value="10000-100000">Above ₹10,000</option>
+                            </select>
+                        </div>
+                        <div class="col-xl-2 col-md-4 col-6">
+                            <label for="filterRating">Rating</label>
+                            <select id="filterRating" class="form-select">
+                                <option value="0">All Ratings</option>
+                                <option value="4.5">4.5+ Excellent</option>
+                                <option value="4.7">4.7+ Superb</option>
+                                <option value="4.9">4.9+ Exceptional</option>
+                            </select>
+                        </div>
+                        <div class="col-xl-2 col-md-4 col-6">
+                            <label for="filterSort">Sort By</label>
+                            <select id="filterSort" class="form-select">
+                                <option value="featured">Featured</option>
+                                <option value="price-asc">Price: Low to High</option>
+                                <option value="price-desc">Price: High to Low</option>
+                                <option value="rating-desc">Rating: High to Low</option>
+                                <option value="name-asc">Name: A to Z</option>
+                            </select>
+                        </div>
+                        <div class="col-xl-1 col-md-2 col-3">
+                            <label for="estNights">Nights</label>
+                            <input type="number" id="estNights" class="form-control" min="1" max="30" value="1">
+                        </div>
+                        <div class="col-xl-1 col-md-2 col-3">
+                            <label for="estRooms">Rooms</label>
+                            <input type="number" id="estRooms" class="form-control" min="1" max="10" value="1">
+                        </div>
+                        <div class="col-xl-1 col-md-4 col-6">
+                            <div class="filter-actions">
+                                <button type="button" class="filter-btn" id="wishlistToggle"><i class="fa-solid fa-heart"></i> <b id="wishlistCount">0</b></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center mt-3 flex-wrap gap-2">
+                        <span class="featured-count mb-0" id="featuredCount"></span>
+                        <button type="button" class="filter-btn flex-grow-0" id="resetFilters"><i class="fa-solid fa-rotate-left"></i> Reset</button>
+                    </div>
+                </div>
+
+                <div class="row g-4" id="featuredHotels"></div>
+            </div>
+        </section>
+
+        <section class="section-space offers-section" id="offers">
+            <div class="container">
+                <div class="section-head" data-aos="fade-up">
+                    <span class="section-label">Special Offers</span>
+                    <h2>Exclusive Deals Just For You</h2>
+                    <p>Copy a coupon code and apply it at checkout to unlock instant savings on your next trip.</p>
+                </div>
+                <div class="row g-4" id="offersGrid"></div>
+            </div>
+        </section>
+
+        <section class="section-space bg-dark" id="how-it-works">
+            <div class="container">
+                <div class="section-head" data-aos="fade-up">
+                    <span class="section-label">How It Works</span>
+                    <h2>Book Your Dream Stay In 4 Easy Steps</h2>
+                    <p>From the first search to the final check-in, we keep every step quick, clear and stress free.</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-3 col-md-6" data-aos="fade-up"><div class="step-card"><div class="step-num"><i class="fa-solid fa-magnifying-glass-location"></i></div><h3>1. Search</h3><p>Enter your destination, dates and number of guests to see live availability.</p></div></div>
+                    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100"><div class="step-card"><div class="step-num"><i class="fa-solid fa-sliders"></i></div><h3>2. Compare</h3><p>Filter by price and rating, sort the results and save favourites to your wishlist.</p></div></div>
+                    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200"><div class="step-card"><div class="step-num"><i class="fa-solid fa-ticket"></i></div><h3>3. Apply Coupon</h3><p>Copy a coupon from our offers and watch the price estimate drop at checkout.</p></div></div>
+                    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300"><div class="step-card"><div class="step-num"><i class="fa-solid fa-suitcase-rolling"></i></div><h3>4. Travel</h3><p>Get instant confirmation, pack your bags and enjoy a worry-free holiday.</p></div></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-space bg-mint" id="why-us">
+            <div class="container">
+                <div class="section-head" data-aos="fade-up">
+                    <span class="section-label">Why Choose Us</span>
+                    <h2>Travel Made Simple, Safe &amp; Rewarding</h2>
+                    <p>We combine great prices, verified stays and round-the-clock support so you can focus on the journey.</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-xl-4 col-md-6" data-aos="fade-up">
+                        <div class="feature-card"><div class="feature-icon"><i class="fa-solid fa-tags"></i></div><h3>Best Price Guarantee</h3><p>Find a lower price elsewhere and we will match it, so you always get the best value on every booking.</p></div>
+                    </div>
+                    <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="80">
+                        <div class="feature-card"><div class="feature-icon"><i class="fa-solid fa-shield-halved"></i></div><h3>Secure Payments</h3><p>Your payment details are protected with industry-standard encryption and trusted payment partners.</p></div>
+                    </div>
+                    <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="160">
+                        <div class="feature-card"><div class="feature-icon"><i class="fa-solid fa-headset"></i></div><h3>24/7 Customer Support</h3><p>Our travel experts are available any time of day to help with changes, questions or emergencies.</p></div>
+                    </div>
+                    <div class="col-xl-4 col-md-6" data-aos="fade-up">
+                        <div class="feature-card"><div class="feature-icon"><i class="fa-solid fa-circle-check"></i></div><h3>Verified Properties</h3><p>Every hotel is personally reviewed and rated by real guests, so what you see is what you get.</p></div>
+                    </div>
+                    <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="80">
+                        <div class="feature-card"><div class="feature-icon"><i class="fa-solid fa-calendar-xmark"></i></div><h3>Free Cancellation</h3><p>Plans change. Enjoy flexible cancellation options on thousands of stays with no hidden charges.</p></div>
+                    </div>
+                    <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="160">
+                        <div class="feature-card"><div class="feature-icon"><i class="fa-solid fa-gift"></i></div><h3>Rewards &amp; Coupons</h3><p>Earn rewards on every trip and unlock seasonal coupons designed to make travel more affordable.</p></div>
+                    </div>
+                </div>
+
+                <div class="stats-strip" data-aos="fade-up">
+                    <div class="row g-3">
+                        <div class="col-md-3 col-6"><div class="stat-item"><strong data-count="10000" data-suffix="+">0</strong><span>Happy Travelers</span></div></div>
+                        <div class="col-md-3 col-6"><div class="stat-item"><strong data-count="500" data-suffix="+">0</strong><span>Premium Hotels</span></div></div>
+                        <div class="col-md-3 col-6"><div class="stat-item"><strong data-count="50" data-suffix="+">0</strong><span>Destinations</span></div></div>
+                        <div class="col-md-3 col-6"><div class="stat-item"><strong data-count="98" data-suffix="%">0</strong><span>Satisfaction Rate</span></div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-space" id="gallery">
+            <div class="container">
+                <div class="section-head" data-aos="fade-up">
+                    <span class="section-label">Travel Gallery</span>
+                    <h2>Moments Captured By Our Travelers</h2>
+                    <p>Tap any photo to view it full screen and get inspired for your next getaway.</p>
+                </div>
+                <div class="row g-3" id="galleryGrid"></div>
+            </div>
+        </section>
+
+        <section class="section-space bg-soft" id="testimonials">
+            <div class="container">
+                <div class="section-head" data-aos="fade-up">
+                    <span class="section-label">Customer Testimonials</span>
+                    <h2>Loved By Travelers Everywhere</h2>
+                    <p>Real stories from guests who booked their dream stay with  Travel.</p>
+                </div>
+                <div class="testimonial-slider" id="testimonialSlider" data-aos="fade-up">
+                    <div class="testimonial-track" id="testimonialTrack"></div>
+                </div>
+                <div class="slider-controls">
+                    <button type="button" class="slider-arrow" id="testiPrev" aria-label="Previous"><i class="fa-solid fa-arrow-left"></i></button>
+                    <div class="slider-dots" id="testimonialDots"></div>
+                    <button type="button" class="slider-arrow" id="testiNext" aria-label="Next"><i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-space section-white" id="faq">
+            <div class="container">
+                <div class="section-head" data-aos="fade-up">
+                    <span class="section-label">FAQ</span>
+                    <h2>Frequently Asked Questions</h2>
+                    <p>Quick answers to the questions travelers ask us most often.</p>
+                </div>
+                <div class="row justify-content-center"><div class="col-lg-8"><div class="accordion faq-wrap" id="faqAccordion">
+                        <div class="accordion-item" data-aos="fade-up"><h3 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq0">How do I book a hotel on  Stackly?</button></h3><div id="faq0" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion"><div class="accordion-body">Search your destination, choose your dates and guests, then pick a hotel from the results. Click Book Now to continue with your reservation.</div></div></div>
+                        <div class="accordion-item" data-aos="fade-up"><h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">Can I cancel or change my booking?</button></h3><div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body">Many properties offer free cancellation. Look for the Free Cancellation option on the hotel card and check the policy before confirming.</div></div></div>
+                        <div class="accordion-item" data-aos="fade-up"><h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">How do I use a coupon code?</button></h3><div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body">Open the Special Offers section, tap Copy on any coupon and paste the code at checkout to apply the discount.</div></div></div>
+                        <div class="accordion-item" data-aos="fade-up"><h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">Is my payment information secure?</button></h3><div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body">Yes. All payments are processed through encrypted gateways and we never store your full card details.</div></div></div>
+                        <div class="accordion-item" data-aos="fade-up"><h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">How is the total price calculated?</button></h3><div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body">The estimate multiplies the nightly rate by nights and rooms, then adds 12% tax. Change nights or rooms in the Featured Hotels filter to see it update.</div></div></div>
+                        <div class="accordion-item" data-aos="fade-up"><h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">Where is my wishlist saved?</button></h3><div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body">Your wishlist is stored in your browser using local storage, so your favourite hotels stay saved when you return.</div></div></div>
+                </div></div></div>
+            </div>
+        </section>
+
+        <section class="section-space bg-mint app-section" id="app">
+            <div class="container">
+                <div class="app-box" data-aos="zoom-in">
+                    <div class="row align-items-center g-4">
+                        <div class="col-lg-7">
+                            <span class="section-label" style="color:#b9ffe9">Mobile App</span>
+                            <h2 class="mt-2">Take this With You</h2>
+                            <p>Manage trips, track offers and get instant alerts on price drops, all from your pocket.</p>
+                            <ul class="app-list">
+                                <li><i class="fa-solid fa-circle-check"></i>Exclusive app-only deals and coupons</li>
+                                <li><i class="fa-solid fa-circle-check"></i>One-tap booking and easy rebooking</li>
+                                <li><i class="fa-solid fa-circle-check"></i>Offline access to your itineraries</li>
+                            </ul>
+                            <a href="error.html" class="store-btn"><i class="fa-brands fa-apple"></i><span><small>Download on the</small><strong>App Store</strong></span></a>
+                            <a href="error.html" class="store-btn"><i class="fa-brands fa-google-play"></i><span><small>Get it on</small><strong>Google Play</strong></span></a>
+                        </div>
+                        <div class="col-lg-5"><div class="phone-mock"><i class="fa-solid fa-plane-departure"></i></div></div>
+                    </div>
+                </div>
+                <div class="partner-row mt-5" data-aos="fade-up">
+                    <span><i class="fa-solid fa-hotel"></i> StayCorp</span><span><i class="fa-solid fa-plane"></i> SkyWays</span><span><i class="fa-solid fa-credit-card"></i> PayEasy</span><span><i class="fa-solid fa-umbrella"></i> SafeTrip</span><span><i class="fa-solid fa-car"></i> RideGo</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="newsletter-section" id="newsletter">
+            <div class="container">
+                <div class="row align-items-center g-4">
+                    <div class="col-lg-6" data-aos="fade-right">
+                        <div class="newsletter-box">
+                            <span class="section-label" style="color:#5be0bc">Newsletter</span>
+                            <h2 class="mt-2">Get Travel Deals In Your Inbox</h2>
+                            <p>Subscribe for exclusive coupons, destination guides and early access to seasonal offers. No spam, unsubscribe any time.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6" data-aos="fade-left">
+                        <div class="newsletter-form-wrap">
+                            <form id="newsletterForm" novalidate>
+                                <div class="newsletter-input">
+                                    <input type="email" id="newsletterEmail" placeholder="Enter your email address" autocomplete="email">
+                                    <button type="submit">Subscribe</button>
+                                </div>
+                                <label class="newsletter-consent">
+                                    <input type="checkbox" id="newsletterConsent">
+                                    I agree to receive travel updates and offers
+                                </label>
+                                <div class="newsletter-message" id="newsletterMessage"></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up">
+                    <a href="index.html"><img src="Assets/blacklogo.webp" alt="Wanderly Travel Logo" class="footer-logo"></a>
+                    <p>Stackly helps you discover beautiful destinations and book memorable stays with confidence, transparent pricing and friendly support.</p>
+                    <div class="footer-social">
+                        <a href="error.html" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="error.html" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="error.html" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="error.html" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="error.html" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 col-6" data-aos="fade-up" data-aos-delay="80">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="error.html">About Us</a></li>
+                        <li><a href="error.html">Contact</a></li>
+                        <li><a href="error.html">Blog</a></li>
+                        <li><a href="error.html">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 col-6" data-aos="fade-up" data-aos-delay="160">
+                    <h4>Destinations</h4>
+                    <ul class="footer-links">
+                        <li><a href="error.html">Ooty</a></li>
+                        <li><a href="error.html">Goa</a></li>
+                        <li><a href="error.html">Bali</a></li>
+                        <li><a href="error.html">Dubai</a></li>
+                        <li><a href="error.html">Maldives</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="240">
+                    <h4>Contact Us</h4>
+                    <ul class="footer-contact">
+                        <li><i class="fa-solid fa-location-dot"></i><span>mmr Complex, Tamil Nadu 600002, India</span></li>
+                        <li><i class="fa-solid fa-phone"></i><a href="error.html">+91 98765 43210</a></li>
+                        <li><i class="fa-solid fa-envelope"></i><a href="error.html">support@stackly.com</a></li>
+                        <li><i class="fa-regular fa-clock"></i><span>Support available 24/7</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 Stackly Travel. All rights reserved.</span>
+                <nav>
+                    <a href="error.html">Privacy Policy</a>
+                    <a href="error.html">Terms &amp; Conditions</a>
+                    <a href="error.html">Cookie Policy</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <div class="lightbox" id="lightbox"><button class="lb-close" id="lbClose" aria-label="Close"><i class="fa-solid fa-xmark"></i></button><button class="lb-prev" id="lbPrev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button><div><img id="lbImg" src="" alt=""><p id="lbCap"></p></div><button class="lb-next" id="lbNext" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button></div>
+    <div class="toast-box" id="toastBox" role="status" aria-live="polite"></div>
+    <button type="button" class="back-to-top" id="backToTop" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

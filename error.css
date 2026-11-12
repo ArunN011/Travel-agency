@@ -1,0 +1,379 @@
+:root {
+    --primary: #123b50;
+    --secondary: #18a999;
+    --white: #ffffff;
+    --light: #f5f8fa;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+}
+
+.error-page {
+    min-height: 100vh;
+    min-height: 100svh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 15px;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.error-background {
+    position: absolute;
+    inset: 0;
+    background: url("../assets/images/travel-hero.webp") center/cover no-repeat;
+    z-index: -2;
+    transform: scale(1.05);
+}
+
+.error-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(9, 36, 51, 0.94),
+        rgba(18, 59, 80, 0.83),
+        rgba(24, 169, 153, 0.63)
+    );
+    z-index: -1;
+}
+
+.error-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 750px;
+    margin: auto;
+    text-align: center;
+    color: var(--white);
+}
+
+.error-logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    padding: 5px 15px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+
+}
+
+.error-logo img {
+    width: 150px;
+    height: 55px;
+    object-fit: contain;
+    filter: brightness(1) saturate(100%) invert(66%) sepia(12%) saturate(700%) hue-rotate(165deg) brightness(88%) contrast(88%);
+}
+
+.error-illustration {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.error-number {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    font-size: clamp(120px, 22vw, 210px);
+    font-weight: 800;
+    line-height: 1;
+    color: rgba(255,255,255,0.95);
+    text-shadow: 0 15px 35px rgba(0,0,0,0.18);
+}
+
+.error-globe {
+    width: clamp(95px, 15vw, 150px);
+    height: clamp(95px, 15vw, 150px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--secondary);
+    border: 7px solid rgba(255,255,255,0.8);
+    border-radius: 50%;
+    color: white;
+    font-size: clamp(55px, 10vw, 95px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+.error-plane {
+    position: absolute;
+    top: 5px;
+    right: 16%;
+    font-size: 35px;
+    color: #65e5c5;
+    transform: rotate(-15deg);
+}
+
+.error-text {
+    max-width: 590px;
+    margin: 0 auto;
+}
+
+.error-label {
+    display: inline-block;
+    background: rgba(255,255,255,0.13);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 30px;
+    padding: 9px 18px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    margin-bottom: 18px;
+}
+
+.error-label i {
+    color: #65e5c5;
+    margin-right: 6px;
+}
+
+.error-text h1 {
+    font-size: clamp(28px, 5vw, 43px);
+    font-weight: 800;
+    margin-bottom: 16px;
+}
+
+.error-text h1 span {
+    color: #65e5c5;
+}
+
+.error-text p {
+    font-size: 14px;
+    line-height: 1.9;
+    color: rgba(255,255,255,0.82);
+    margin-bottom: 28px;
+}
+
+.error-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.back-btn,
+.home-btn {
+    min-width: 175px;
+    min-height: 50px;
+    padding: 13px 22px;
+    border-radius: 6px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.back-btn {
+    color: white;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.7);
+}
+
+.back-btn:hover {
+    background: white;
+    color: var(--primary);
+    transform: translateY(-4px);
+}
+
+.home-btn {
+    background: var(--secondary);
+    color: white;
+    border: 1px solid var(--secondary);
+}
+
+.home-btn:hover {
+    background: white;
+    color: var(--primary);
+    border-color: white;
+    transform: translateY(-4px);
+}
+
+.error-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 55px;
+    color: rgba(255,255,255,0.75);
+    font-size: 11px;
+    flex-wrap: wrap;
+}
+
+.error-footer i {
+    color: #65e5c5;
+    margin-right: 5px;
+}
+
+.footer-divider {
+    width: 1px;
+    height: 15px;
+    background: rgba(255,255,255,0.4);
+}
+
+.floating-shape {
+    position: absolute;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.shape-one {
+    width: 200px;
+    height: 200px;
+    top: 8%;
+    left: -70px;
+}
+
+.shape-two {
+    width: 300px;
+    height: 300px;
+    bottom: -130px;
+    right: -90px;
+}
+
+.shape-three {
+    width: 100px;
+    height: 100px;
+    top: 20%;
+    right: 10%;
+}
+
+@media (max-width: 767px) {
+
+    .error-page {
+        padding: 35px 20px;
+    }
+
+    .error-logo {
+        margin-bottom: 40px;
+    }
+
+    .error-logo img {
+        width: 130px;
+        height: 48px;
+    }
+
+    .error-number {
+        gap: 7px;
+    }
+
+    .error-globe {
+        border-width: 5px;
+    }
+
+    .error-plane {
+        right: 8%;
+        top: -15px;
+        font-size: 25px;
+    }
+
+    .error-text h1 {
+        font-size: 30px;
+    }
+
+    .error-text p {
+        font-size: 12px;
+    }
+
+    .error-footer {
+        margin-top: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .error-page {
+        min-height: 100svh;
+        padding: 30px 18px;
+    }
+
+    .error-number {
+        font-size: clamp(95px, 26vw, 125px);
+    }
+
+    .error-globe {
+        width: 85px;
+        height: 85px;
+        font-size: 50px;
+    }
+
+    .error-text h1 {
+        font-size: 27px;
+    }
+
+    .error-label {
+        font-size: 9px;
+        padding: 8px 12px;
+    }
+
+    .error-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .back-btn,
+    .home-btn {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .error-footer {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .footer-divider {
+        display: none;
+    }
+}
+
+@media (max-width: 350px) {
+
+    .error-number {
+        font-size: 85px;
+    }
+
+    .error-globe {
+        width: 70px;
+        height: 70px;
+        font-size: 40px;
+    }
+
+    .error-text h1 {
+        font-size: 24px;
+    }
+
+    .error-text p {
+        font-size: 11px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
